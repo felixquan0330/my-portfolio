@@ -15,11 +15,6 @@ A simple, customizable portfolio website built using HTML, CSS, and JavaScript.
 - Projects showcase
 - Downloadable resume
 
-## Screenshots
-
-![Desktop](https://raw.githubusercontent.com/mohankumarpaluru/mohankumarpaluru.github.io/9885f20859cd330713367980db24e251f7a290e8/assets/images/screenshot_1.jpg)
-![Mobile](https://raw.githubusercontent.com/mohankumarpaluru/mohankumarpaluru.github.io/9885f20859cd330713367980db24e251f7a290e8/assets/images/screenshot_2.jpg)
-
 ## Live Demo
 
 [mohan.is-a.dev](https://mohan.is-a.dev/)
@@ -38,7 +33,7 @@ A simple, customizable portfolio website built using HTML, CSS, and JavaScript.
 
 ## Installation
 
-1. Clone the repository: `git clone https://github.com/mohankumarpaluru/portfolio.git`
+1. Clone the repository: `git clone https://github.com/felixquan0330/my-portfolio.git`
 2. Navigate to the project directory: `cd portfolio`
 3. Open `index.html` in your browser
 
