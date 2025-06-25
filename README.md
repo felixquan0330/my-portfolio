@@ -1,7 +1,7 @@
 # Portfolio
 
 <div style="text-align:center;">
-    <img src="https://github.com/mohankumarpaluru/mohankumarpaluru.github.io/raw/refs/heads/master/assets/images/logo.png" alt="Project Logo" height="200">
+    <img src="https://github.com//felixquan0330.github.io/raw/refs/heads/master/assets/images/logo.png" alt="Project Logo" height="200">
 </div>
 
 A simple, customizable portfolio website built using HTML, CSS, and JavaScript.
@@ -17,7 +17,7 @@ A simple, customizable portfolio website built using HTML, CSS, and JavaScript.
 
 ## Live Demo
 
-[mohan.is-a.dev](https://mohan.is-a.dev/)
+[felixquan.vercel.app](https://felixquan.vercel.app/)
 
 ## Technologies Used
 
@@ -53,6 +53,3 @@ A simple, customizable portfolio website built using HTML, CSS, and JavaScript.
 
 Contributions are welcome! For major changes, please open an issue first to discuss what you would like to change.
 
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](https://github.com/mohankumarpaluru/mohankumarpaluru.github.io/blob/9885f20859cd330713367980db24e251f7a290e8/LICENSE) file for details.

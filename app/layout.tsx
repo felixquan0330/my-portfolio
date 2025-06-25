@@ -5,8 +5,8 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Mohan Kumar Paluru | Portfolio',
-  description: 'Python Data Engineer Portfolio - Specializing in Python web development, data engineering, and AWS cloud technologies.',
+  title: 'Felix Quan | Portfolio',
+  description: 'Full Stack && Blockchain Developer Portfolio - Specializing in Python web development, data engineering, and AWS cloud technologies.',
   icons: {
     icon: '/assets/images/logo.ico',
   },

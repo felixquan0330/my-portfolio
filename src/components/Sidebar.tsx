@@ -60,7 +60,7 @@ export default function Sidebar() {
           </ul>
           <div className="separator"></div>
           <ul className="social-list">
-            <li className="social-item"> <a href="https://github.com/mohankumarpaluru" className="social-link"> <ion-icon
+            <li className="social-item"> <a href="https://github.com/felixquan0330" className="social-link"> <ion-icon
               name="logo-github"></ion-icon> </a> </li>
             <li className="social-item"> <a href="https://x.com/trixter127" className="social-link"> <ion-icon
               name="logo-twitter"></ion-icon> </a> </li>

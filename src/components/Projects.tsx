@@ -114,7 +114,7 @@ export default function Resume({ isActive }: ResumeProps) {
           Resume
         </h2>
         <a
-          href="/assets/resume/Mohan_Kumar_Paluru-Python_Developer_CV_July_2024.pdf"
+          href="/assets/resume/FelixQuanResume.pdf"
           className="download-resume-btn inline-flex items-center gap-2 bg-jet text-white-1 px-6 py-3 rounded-lg hover:bg-onyx transition-colors shadow-lg"
           target="_blank"
           rel="noopener noreferrer"
