@@ -1,16 +1,17 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import Sidebar from './components/Sidebar'
-import Navbar from './components/Navbar'
-import About from './components/About'
-import Resume from './components/Resume'
-import Projects from './components/Projects'
-import Blog from './components/Blog'
-import Contact from './components/Contact'
+import Sidebar from '../src/components/Sidebar'
+import Navbar from '../src/components/Navbar'
+import About from '../src/components/About'
+import Resume from '../src/components/Resume'
+import Projects from '../src/components/Projects'
+import Blog from '../src/components/Blog'
+import Contact from '../src/components/Contact'
 
-function App() {
+export default function Home() {
   const [activePage, setActivePage] = useState('about')
+  
   useEffect(() => {
     // Initialize particles.js
     if (typeof window !== 'undefined' && (window as any).particlesJS) {
@@ -121,6 +122,7 @@ function App() {
       })
     }
   }, [])
+  
   return (
     <main>
       <Sidebar />
@@ -133,7 +135,5 @@ function App() {
         <Contact isActive={activePage === 'contact'} />
       </div>
     </main>
-  );
-}
-
-export default App;
+  )
+} 

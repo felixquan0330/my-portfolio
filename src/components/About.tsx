@@ -1,71 +1,116 @@
-import React from 'react';
-import { FaceSmileIcon, ClipboardDocumentListIcon, PhoneIcon, UserGroupIcon } from '@heroicons/react/24/outline';
+'use client'
 
-export default function About() {
+import Image from 'next/image'
+
+interface AboutProps {
+  isActive: boolean
+}
+
+export default function About({ isActive }: AboutProps) {
+  const techStack = [
+    { name: 'Python', icon: '/assets/images/icon-python.svg' },
+    { name: 'AWS', icon: '/assets/images/icon-aws.svg' },
+    { name: 'PostgreSQL', icon: '/assets/images/icon-postgresql.svg' },
+    { name: 'Bazel', icon: '/assets/images/icon-bazel.svg' },
+    { name: 'Git', icon: '/assets/images/icon-git.svg' },
+    { name: 'GitHub Actions', icon: '/assets/images/icon-github-actions.svg' },
+    { name: 'Pandas', icon: '/assets/images/icon-pandas.svg' },
+    { name: 'Docker', icon: '/assets/images/icon-docker.svg' },
+    { name: 'Flask', icon: '/assets/images/icon-flask.svg' },
+    { name: 'FastAPI', icon: '/assets/images/icon-fastapi.svg' },
+    { name: 'OpenCV', icon: '/assets/images/icon-opencv.svg' },
+    { name: 'MySQL', icon: '/assets/images/icon-mysql.svg' },
+    { name: 'MongoDB', icon: '/assets/images/icon-mongodb.svg' },
+    { name: 'Django REST', icon: '/assets/images/icon-django-rest.svg' },
+  ]
+
+  const personalEndeavors = [
+    {
+      title: 'Open-Source Explorations and Android Customization',
+      description: 'Experimenting with self-hosted open-source applications and customizing Android operating systems to explore different alternatives.',
+      icon: '/assets/images/icon-open-source.svg'
+    },
+    {
+      title: 'Automation Scripting',
+      description: 'Creating Python and shell scripts to automate tasks and improve efficiency.',
+      icon: '/assets/images/icon-dev.svg'
+    },
+    {
+      title: 'Tech Blogging',
+      description: 'Sharing my tech insights and experiences and things I find interesting through personal blog posts.',
+      icon: '/assets/images/icon-tech-blog.svg'
+    },
+    {
+      title: 'Manga and Anime',
+      description: 'Enjoying manga, anime and otaku culture as a form of relaxation and creative inspiration.',
+      icon: '/assets/images/icon-mangekyou-sharingan.svg'
+    }
+  ]
+
   return (
-    <section id="about" className="py-16 bg-white">
-      <div className="max-w-7xl mx-auto px-6">
-        <h2 className="text-3xl font-bold mb-2 flex items-center">
-          About
+    <article className={`about bg-eerie-black-2 border border-jet rounded-[20px] p-6 shadow-shadow-1 ${isActive ? 'active' : ''}`}>
+      <header className="mb-6">
+        <h2 className="h2 article-title">
+          About me
         </h2>
-        <div className="w-16 h-1 bg-blue-500 mb-8 rounded"></div>
-        <p className="mb-12 text-gray-600 text-lg text-center max-w-4xl mx-auto font-medium">
-          Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.
+      </header>
+      
+      <section className="about-text mb-8">
+        <p className="text-light-gray leading-relaxed mb-4">
+          I am a tech enthusiast specializing in Python web development, data engineering, and AWS cloud technologies. I enjoy exploring new technologies and diving into open-source projects. My expertise lies in designing and optimizing robust data pipelines, crafting Python backends, and implementing efficient automation scripts. I excel in solving intricate data problems by delivering efficient solutions with clean, easy-to-maintain code. My expertise extends to implementing CI/CD pipelines and automated workflows to streamline operations.
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start mb-16">
-          <div className="flex justify-center md:justify-start">
-            <img src="assets/img/my-profile-img.jpg" className="w-80 h-80 rounded-lg object-cover shadow" alt="" />
-          </div>
-          <div>
-            <h3 className="text-2xl font-bold mb-2">UI/UX Designer &amp; Web Developer.</h3>
-            <p className="italic text-gray-600 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-4">
-              <ul className="space-y-2 text-gray-800">
-                <li className="flex items-center"><i className="bi bi-chevron-right text-blue-500 mr-2"></i> <span className="font-semibold">Birthday:</span> <span className="ml-1 font-normal">1 May 1995</span></li>
-                <li className="flex items-center"><i className="bi bi-chevron-right text-blue-500 mr-2"></i> <span className="font-semibold">Website:</span> <span className="ml-1 font-normal">www.example.com</span></li>
-                <li className="flex items-center"><i className="bi bi-chevron-right text-blue-500 mr-2"></i> <span className="font-semibold">Phone:</span> <span className="ml-1 font-normal">+123 456 7890</span></li>
-                <li className="flex items-center"><i className="bi bi-chevron-right text-blue-500 mr-2"></i> <span className="font-semibold">City:</span> <span className="ml-1 font-normal">New York, USA</span></li>
-              </ul>
-              <ul className="space-y-2 text-gray-800">
-                <li className="flex items-center"><i className="bi bi-chevron-right text-blue-500 mr-2"></i> <span className="font-semibold">Age:</span> <span className="ml-1 font-normal">30</span></li>
-                <li className="flex items-center"><i className="bi bi-chevron-right text-blue-500 mr-2"></i> <span className="font-semibold">Degree:</span> <span className="ml-1 font-normal">Master</span></li>
-                <li className="flex items-center"><i className="bi bi-chevron-right text-blue-500 mr-2"></i> <span className="font-semibold">Email:</span> <span className="ml-1 font-normal">email@example.com</span></li>
-                <li className="flex items-center"><i className="bi bi-chevron-right text-blue-500 mr-2"></i> <span className="font-semibold">Freelance:</span> <span className="ml-1 font-normal">Available</span></li>
-              </ul>
-            </div>
-            <p className="text-gray-700">
-              Officiis eligendi itaque labore et dolorum mollitia officiis optio vero. Quisquam sunt adipisci omnis et ut. Nulla accusantium dolor incidunt officia tempore. Et eius omnis. Cupiditate ut dicta maxime officiis quidem quia. Sed et consectetur qui quia repellendus itaque neque.
-            </p>
-          </div>
+        <p className="text-light-gray leading-relaxed">
+          My goal is to continually grow as a developer and bring creativity and precision to every project I undertake.
+        </p>
+      </section>
+
+      <section className="techstack mb-8">
+        <h3 className="h3 techstack-title">Tech Stack</h3>
+        <div className="techstack-wrapper overflow-hidden">
+          <ul className="techstack-list flex flex-wrap gap-4 animate-scroll">
+            {techStack.map((tech, index) => (
+              <li key={index} className="techstack-item min-w-[60px] flex-shrink-0">
+                <a href="#" className="block p-3 bg-jet rounded-lg hover:bg-onyx transition-colors">
+                  <Image 
+                    src={tech.icon} 
+                    alt={`${tech.name} logo`} 
+                    width={40} 
+                    height={40}
+                    className="w-10 h-10 object-contain hover:scale-110 transition-transform"
+                  />
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
-        {/* Stats Section */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-8 text-center">
-          <div className="flex flex-col items-center">
-            <FaceSmileIcon className="w-14 h-14 text-sky-400 mb-2" />
-            <span className="text-4xl font-bold text-gray-900">232</span>
-            <p className="mt-2 text-base font-semibold">Happy Clients</p>
-            <span className="text-gray-400 text-sm">consequuntur quae</span>
-          </div>
-          <div className="flex flex-col items-center">
-            <ClipboardDocumentListIcon className="w-14 h-14 text-sky-400 mb-2" />
-            <span className="text-4xl font-bold text-gray-900">521</span>
-            <p className="mt-2 text-base font-semibold">Projects</p>
-            <span className="text-gray-400 text-sm">adipisci atque cum quia aut</span>
-          </div>
-          <div className="flex flex-col items-center">
-            <PhoneIcon className="w-14 h-14 text-sky-400 mb-2" />
-            <span className="text-4xl font-bold text-gray-900">1453</span>
-            <p className="mt-2 text-base font-semibold">Hours Of Support</p>
-            <span className="text-gray-400 text-sm">aut commodi quaerat</span>
-          </div>
-          <div className="flex flex-col items-center">
-            <UserGroupIcon className="w-14 h-14 text-sky-400 mb-2" />
-            <span className="text-4xl font-bold text-gray-900">32</span>
-            <p className="mt-2 text-base font-semibold">Hard Workers</p>
-            <span className="text-gray-400 text-sm">rerum asperiores dolor</span>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
+      </section>
+
+      <section className="service">
+        <h3 className="h3 service-title">Personal Endeavors</h3>
+        <ul className="service-list grid grid-cols-1 md:grid-cols-2 gap-6">
+          {personalEndeavors.map((endeavor, index) => (
+            <li key={index} className="service-item bg-jet rounded-lg p-6 hover:bg-onyx transition-colors">
+              <div className="service-icon-box mb-4">
+                <Image 
+                  src={endeavor.icon} 
+                  alt="service icon" 
+                  width={40} 
+                  height={40}
+                  className="mx-auto"
+                />
+              </div>
+              <div className="service-content-box text-center md:text-left">
+                <h4 className="h4 service-item-title">
+                  {endeavor.title}
+                </h4>
+                <p className="service-item-text text-light-gray leading-relaxed">
+                  {endeavor.description}
+                </p>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </section>
+    </article>
+  )
 } 

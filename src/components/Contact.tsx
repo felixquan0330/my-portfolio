@@ -1,86 +1,105 @@
-import React from 'react';
-import { MapPinIcon, PhoneIcon, EnvelopeIcon } from '@heroicons/react/24/outline';
+'use client'
 
-export default function Contact() {
-    return (
-        <section id="contact" className="py-16 bg-white">
-            <div className="max-w-7xl mx-auto px-6">
-                {/* Section Title */}
-                <div className="mb-12">
-                    <h2 className="text-3xl font-bold mb-2 text-left">Contact</h2>
-                    <div className="w-16 h-1 bg-blue-500 mb-6 rounded"></div>
-                    <p className="text-gray-700 max-w-2xl text-left mb-8">Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-                </div>
-                <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 text-left">
-                    {/* Left: Info and Map */}
-                    <div className="lg:col-span-2 flex flex-col gap-6">
-                        <div className="bg-white rounded-lg p-8 space-y-8 shadow-md">
-                            <div className="flex items-center gap-4">
-                                <span className="bg-blue-50 rounded-full p-3 flex items-center justify-center">
-                                    <MapPinIcon className="w-7 h-7 text-sky-400" />
-                                </span>
-                                <div>
-                                    <h3 className="font-bold text-lg mb-1">Address</h3>
-                                    <p className="text-gray-700">A108 Adam Street, New York, NY 535022</p>
-                                </div>
-                            </div>
-                            <div className="flex items-center gap-4">
-                                <span className="bg-blue-50 rounded-full p-3 flex items-center justify-center">
-                                    <PhoneIcon className="w-7 h-7 text-sky-400" />
-                                </span>
-                                <div>
-                                    <h3 className="font-bold text-lg mb-1">Call Us</h3>
-                                    <p className="text-gray-700">+1 5589 55488 55</p>
-                                </div>
-                            </div>
-                            <div className="flex items-center gap-4">
-                                <span className="bg-blue-50 rounded-full p-3 flex items-center justify-center">
-                                    <EnvelopeIcon className="w-7 h-7 text-sky-400" />
-                                </span>
-                                <div>
-                                    <h3 className="font-bold text-lg mb-1">Email Us</h3>
-                                    <p className="text-gray-700">info@example.com</p>
-                                </div>
-                            </div>
-                        </div>
-                        <iframe
-                            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d48389.78314118045!2d-74.006138!3d40.710059!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a22a3bda30d%3A0xb89d1fe6bc499443!2sDowntown%20Conference%20Center!5e0!3m2!1sen!2sus!4v1676961268712!5m2!1sen!2sus"
-                            style={{ border: 0, width: '100%', height: 220 }}
-                            allowFullScreen={true}
-                            loading="lazy"
-                            referrerPolicy="no-referrer-when-downgrade"
-                            title="Google Map"
-                            className="rounded-lg shadow-md"
-                        ></iframe>
-                    </div>
-                    {/* Right: Contact Form */}
-                    <div className="lg:col-span-3">
-                        <form className="bg-white rounded-lg p-8 space-y-6 shadow-md">
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <div>
-                                    <label htmlFor="name-field" className="block mb-2 font-semibold">Your Name</label>
-                                    <input type="text" name="name" id="name-field" className="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-300" required />
-                                </div>
-                                <div>
-                                    <label htmlFor="email-field" className="block mb-2 font-semibold">Your Email</label>
-                                    <input type="email" name="email" id="email-field" className="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-300" required />
-                                </div>
-                            </div>
-                            <div>
-                                <label htmlFor="subject-field" className="block mb-2 font-semibold">Subject</label>
-                                <input type="text" name="subject" id="subject-field" className="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-300" required />
-                            </div>
-                            <div>
-                                <label htmlFor="message-field" className="block mb-2 font-semibold">Message</label>
-                                <textarea name="message" id="message-field" rows={8} className="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-300" required></textarea>
-                            </div>
-                            <div className="flex justify-end">
-                                <button type="submit" className="bg-sky-500 hover:bg-sky-600 text-white font-bold py-3 px-10 rounded-full transition text-lg shadow">Send Message</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-    );
+import { useState } from 'react'
+
+interface ContactProps {
+  isActive: boolean
+}
+
+export default function Contact({ isActive }: ContactProps) {
+  const [isSubmitting, setIsSubmitting] = useState(false)
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+    
+    const formData = new FormData(e.currentTarget)
+    
+    try {
+      const response = await fetch('https://formspree.io/f/xrbbokdj', {
+        method: 'POST',
+        body: formData,
+      })
+      
+      if (response.ok) {
+        alert('Message sent successfully!')
+        e.currentTarget.reset()
+      } else {
+        alert('Failed to send message. Please try again.')
+      }
+    } catch (error) {
+      alert('Error sending message. Please try again.')
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
+  return (
+    <article className={`contact bg-eerie-black-2 border border-jet rounded-[20px] p-6 shadow-shadow-1 ${isActive ? 'active' : ''}`}>
+      <header className="mb-8">
+        <h2 className="article-title h2">
+          Contact
+        </h2>
+      </header>
+
+      <section className="mapbox mb-8">
+        <figure className="w-full h-64 rounded-lg overflow-hidden">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3877.5207096112817!2d79.43743627504861!3d13.626059000192454!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a4d4b6c13a16f21%3A0x187c13b0f8b814f6!2sThunga%20Residency!5e0!3m2!1sen!2sin!4v1736011329104!5m2!1sen!2sin" 
+            width="100%" 
+            height="100%" 
+            style={{ border: 0 }} 
+            allowFullScreen 
+            loading="lazy" 
+            referrerPolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </figure>
+      </section>
+
+      <section className="contact-form">
+        <h3 className="h3 form-title">Contact Form</h3>
+        <form onSubmit={handleSubmit} className="form space-y-6">
+          <div className="input-wrapper grid grid-cols-1 md:grid-cols-2 gap-4">
+            <input 
+              type="text" 
+              name="fullname" 
+              className="form-input w-full p-4 bg-jet border border-onyx rounded-lg text-white-1 placeholder-light-gray focus:border-aqua-teal-1 transition-colors" 
+              placeholder="Full name" 
+              required 
+            />
+            <input 
+              type="email" 
+              name="email" 
+              className="form-input w-full p-4 bg-jet border border-onyx rounded-lg text-white-1 placeholder-light-gray focus:border-aqua-teal-1 transition-colors" 
+              placeholder="Email address" 
+              required 
+            />
+          </div>
+          <p className="fs-description">
+            This will help me respond to your query via an email.
+          </p>
+          
+          <textarea 
+            name="message" 
+            className="form-input w-full p-4 bg-jet border border-onyx rounded-lg text-white-1 placeholder-light-gray focus:border-aqua-teal-1 transition-colors resize-none" 
+            placeholder="Your Message" 
+            rows={6}
+            required 
+          ></textarea>
+          <p className="fs-description">
+            What would you like to discuss?
+          </p>
+          
+          <button 
+            type="submit" 
+            disabled={isSubmitting}
+            className="form-btn"
+          >
+            <ion-icon name="paper-plane"></ion-icon>
+            <span>{isSubmitting ? 'Sending...' : 'Send Message'}</span>
+          </button>
+        </form>
+      </section>
+    </article>
+  )
 } 
